@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "V88JmVwu8IjfIb3XLLB2GFq0wiCzVtKvoD9kfqfcrLg=",
+  "Source": "ChartMaker.Api",
+  "BasePath": "_content/ChartMaker.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,6 @@
+@ChartMaker_HostAddress = http://localhost:5037
+
+GET {{ChartMaker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

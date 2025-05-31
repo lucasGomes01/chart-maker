@@ -1,0 +1,16 @@
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\bin\Debug\net8.0\ChartMaker.Application.deps.json
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\bin\Debug\net8.0\ChartMaker.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\bin\Debug\net8.0\ChartMaker.Application.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\bin\Debug\net8.0\ChartMaker.Domain.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\bin\Debug\net8.0\ChartMaker.Domain.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.csproj.AssemblyReference.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.AssemblyInfoInputs.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.AssemblyInfo.cs
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.csproj.CoreCompileInputs.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.sourcelink.json
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.csproj.CopyComplete
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\refint\ChartMaker.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ChartMaker.Application.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Application\obj\Debug\net8.0\ref\ChartMaker.Application.dll

@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ChartMaker.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ChartMaker.Application": "1.0.0",
+          "ChartMaker.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ChartMaker.Infrastructure.dll": {}
+        }
+      },
+      "ChartMaker.Application/1.0.0": {
+        "dependencies": {
+          "ChartMaker.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ChartMaker.Application.dll": {}
+        }
+      },
+      "ChartMaker.Domain/1.0.0": {
+        "runtime": {
+          "ChartMaker.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChartMaker.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChartMaker.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChartMaker.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
