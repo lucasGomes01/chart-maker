@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChartMaker.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d47cd461622aed1e988ae3fdf3c0e3f59e15ba58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+775c8a3b1c1e40e630405ed655cbaa4d2eeb59a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChartMaker.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChartMaker.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

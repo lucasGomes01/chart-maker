@@ -1,25 +1,23 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER app
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 5000
+EXPOSE 5001
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ChartMaker.csproj", "."]
-RUN dotnet restore "./././ChartMaker.csproj"
+
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "./ChartMaker.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+RUN dotnet restore "ChartMaker.sln"
+
+RUN dotnet build "ChartMaker.Api/ChartMaker.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./ChartMaker.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ChartMaker.Api/ChartMaker.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ChartMaker.dll"]
+ENTRYPOINT ["dotnet", "ChartMaker.Api.dll"]

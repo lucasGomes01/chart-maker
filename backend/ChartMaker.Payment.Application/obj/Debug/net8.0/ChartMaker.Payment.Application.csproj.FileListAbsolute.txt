@@ -1,0 +1,16 @@
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\bin\Debug\net8.0\ChartMaker.Payment.Application.deps.json
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\bin\Debug\net8.0\ChartMaker.Payment.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\bin\Debug\net8.0\ChartMaker.Payment.Application.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\bin\Debug\net8.0\ChartMaker.Payment.Domain.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\bin\Debug\net8.0\ChartMaker.Payment.Domain.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.csproj.AssemblyReference.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.AssemblyInfoInputs.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.AssemblyInfo.cs
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.csproj.CoreCompileInputs.cache
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.sourcelink.json
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.csproj.CopyComplete
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\refint\ChartMaker.Payment.Application.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ChartMaker.Payment.Application.pdb
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Payment.Application\obj\Debug\net8.0\ref\ChartMaker.Payment.Application.dll

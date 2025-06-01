@@ -1,0 +1,118 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "ChartMaker.Payment.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ChartMaker.Payment.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ChartMaker.Payment.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChartMaker.Payment.Application.dll": {}
+        }
+      },
+      "ChartMaker.Payment.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ChartMaker.Payment.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChartMaker.Payment.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChartMaker.Payment.Application/1.0.0": {
+      "type": "project",
+      "path": "../ChartMaker.Payment.Application/ChartMaker.Payment.Application.csproj",
+      "msbuildProject": "../ChartMaker.Payment.Application/ChartMaker.Payment.Application.csproj"
+    },
+    "ChartMaker.Payment.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ChartMaker.Payment.Domain/ChartMaker.Payment.Domain.csproj",
+      "msbuildProject": "../ChartMaker.Payment.Domain/ChartMaker.Payment.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "ChartMaker.Payment.Application >= 1.0.0",
+      "ChartMaker.Payment.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\gomes\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Infrastructure\\ChartMaker.Payment.Infrastructure.csproj",
+      "projectName": "ChartMaker.Payment.Infrastructure",
+      "projectPath": "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Infrastructure\\ChartMaker.Payment.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\gomes\\.nuget\\packages\\",
+      "outputPath": "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Infrastructure\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\gomes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Application\\ChartMaker.Payment.Application.csproj": {
+              "projectPath": "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Application\\ChartMaker.Payment.Application.csproj"
+            },
+            "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Domain\\ChartMaker.Payment.Domain.csproj": {
+              "projectPath": "D:\\projetos para portfólio\\chart-maker\\chart-maker\\backend\\ChartMaker.Payment.Domain\\ChartMaker.Payment.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

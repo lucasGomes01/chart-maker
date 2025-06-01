@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChartMaker.Payment.Application\ChartMaker.Payment.Application.csproj" />
+    <ProjectReference Include="..\ChartMaker.Payment.Domain\ChartMaker.Payment.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

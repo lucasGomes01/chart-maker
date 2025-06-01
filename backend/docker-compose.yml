@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  chartmaker.api:
+    image: ${DOCKER_REGISTRY-}chartmakerapi
+    build:
+      context: .
+      dockerfile: ChartMaker.Api/Dockerfile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    
+  products.database:
+    image: postgres:latest
+    container_name: products.database
+    environment:
+        - POSTGRES_DB=chartmaker
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

@@ -16,3 +16,5 @@ D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastru
 D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastructure\obj\Debug\net8.0\refint\ChartMaker.Infrastructure.dll
 D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastructure\obj\Debug\net8.0\ChartMaker.Infrastructure.pdb
 D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastructure\obj\Debug\net8.0\ref\ChartMaker.Infrastructure.dll
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastructure\bin\Debug\net8.0\ChartMaker.Infrastructure.runtimeconfig.json
+D:\projetos para portfólio\chart-maker\chart-maker\backend\ChartMaker.Infrastructure\obj\Debug\net8.0\ChartMaker.Infrastructure.genruntimeconfig.cache
