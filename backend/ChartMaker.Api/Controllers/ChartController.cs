@@ -1,5 +1,7 @@
+using ChartMaker.Application.Commands.Chart.CreateChart;
 using ChartMaker.Domain.Entities;
 using ChartMaker.Infrastructure.Database;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,19 +9,20 @@ using Microsoft.EntityFrameworkCore;
 [Route("api/[controller]")]
 public class ChartController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
+    private readonly AppDbContext _context;
+    private readonly IMediator _mediator;
 
-    public ChartController(ApplicationDbContext context)
+    public ChartController(AppDbContext context,
+                           IMediator mediator)
     {
         _context = context;
+        _mediator = mediator;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Chart chart)
+    public async Task<IActionResult> Create([FromBody] CreateChartCommand command)
     {
-        chart.CreatedAt = DateTime.UtcNow;
-        _context.Charts.Add(chart);
-        await _context.SaveChangesAsync();
+        var chart = await _mediator.Send(command);
         return CreatedAtAction(nameof(Create), new { id = chart.Id }, chart);
     }
 

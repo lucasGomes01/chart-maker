@@ -1,3 +1,4 @@
+using ChartMaker.Application.Commands.Chart.CreateChart;
 using ChartMaker.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,8 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Database")));
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(typeof(CreateChartCommand).Assembly);
+});
+
+// Repositories
+builder.Services.AddScoped<IChartRepository, ChartRepository>();
 
 builder.Services.AddCors(options =>
 {
@@ -36,7 +45,7 @@ if (app.Environment.IsDevelopment())
     // Apply migrations at startup
     using (var scope = app.Services.CreateScope())
     {
-        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         dbContext.Database.Migrate();
     }
 }
