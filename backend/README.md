@@ -1,0 +1,1 @@
+Generate migration: dotnet ef migrations add description --project ChartMaker.Infrastructure --startup-project ChartMaker.API

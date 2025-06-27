@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  <PackageReference Include="ClosedXML" Version="0.105.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
     <ProjectReference Include="..\ChartMaker.Domain\ChartMaker.Domain.csproj" />
   </ItemGroup>
 
@@ -19,6 +21,9 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.5.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+
+	  <PackageReference Include="EPPlus" Version="6.3.5" />
+	  <PackageReference Include="ScottPlot" Version="5.0.7" />
   </ItemGroup>
 
 </Project>

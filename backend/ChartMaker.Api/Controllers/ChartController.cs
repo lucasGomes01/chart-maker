@@ -20,7 +20,8 @@ public class ChartController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateChartCommand command)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> Create([FromForm] CreateChartCommand command)
     {
         var chart = await _mediator.Send(command);
         return CreatedAtAction(nameof(Create), new { id = chart.Id }, chart);

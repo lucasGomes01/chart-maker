@@ -19,9 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartMaker.Payment.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChartMaker.Payment.Infrastructure", "ChartMaker.Payment.Infrastructure\ChartMaker.Payment.Infrastructure.csproj", "{F89A11B8-099F-42C3-ABD4-1C333EB65520}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{F612274A-962F-4EE6-8B67-820DFFE29114}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C3F9259F-063F-4BFF-82E9-FADAB77B30CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{D8F64B56-124B-4393-A347-D7FE2EEFE2A1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

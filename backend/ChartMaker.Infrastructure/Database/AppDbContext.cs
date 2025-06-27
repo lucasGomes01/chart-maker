@@ -9,5 +9,7 @@ namespace ChartMaker.Infrastructure.Database
             : base(options) { }
 
         public DbSet<Chart> Charts { get; set; }
+        public DbSet<ChartData> ChartData { get; set; }
+
     }
 }

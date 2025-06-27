@@ -1,4 +1,5 @@
 using ChartMaker.Application.Commands.Chart.CreateChart;
+using ChartMaker.Application.Excel.Interfaces;
 using ChartMaker.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,8 +20,16 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(CreateChartCommand).Assembly);
 });
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
+
 // Repositories
 builder.Services.AddScoped<IChartRepository, ChartRepository>();
+
+// Excel Data Reader
+builder.Services.AddScoped<IExcelDataReader, ExcelDataReader>();
 
 builder.Services.AddCors(options =>
 {

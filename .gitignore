@@ -613,3 +613,6 @@ $RECYCLE.BIN/
 /backend/.vs/ChartMaker/FileContentIndex/c3993a57-2abe-4422-ba1a-7271f1c37197.vsidx
 /backend/obj/Docker/CachedComposeConfigFilePaths.cache
 /backend/obj/Docker/HashOfDockerArtifacts.cache
+/backend/ChartMaker.Api/obj/Debug/net8.0/ChartMaker.Api.csproj.AssemblyReference.cache
+/backend/ChartMaker.Api/obj/Debug/net8.0/ChartMaker.Api.GeneratedMSBuildEditorConfig.editorconfig
+/backend/.vs/ChartMaker/v17/.suo
