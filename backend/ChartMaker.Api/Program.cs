@@ -51,15 +51,40 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseCors("AllowAll");
 
-    // Apply migrations at startup
+    // Apply migrations at startup with resilience
     using (var scope = app.Services.CreateScope())
     {
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        dbContext.Database.Migrate();
+        
+        int retries = 10;
+        while (retries > 0)
+        {
+            try
+            {
+                Console.WriteLine("Tentando aplicar migrações do banco de dados...");
+                dbContext.Database.Migrate();
+                Console.WriteLine("Migrações aplicadas com sucesso!");
+                break;
+            }
+            catch (Exception ex)
+            {
+                retries--;
+                if (retries == 0)
+                {
+                    Console.WriteLine("Falha crítica: não foi possível conectar ao banco de dados.");
+                    throw;
+                }
+                Console.WriteLine($"Banco de dados não está pronto ainda. Tentativas restantes: {retries}. Aguardando 2 segundos...");
+                System.Threading.Thread.Sleep(2000);
+            }
+        }
     }
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 
