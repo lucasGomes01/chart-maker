@@ -1,7 +1,8 @@
-﻿using ChartMaker.Application.Commands.Chart.CreateChart;
+using ChartMaker.Application.Commands.Chart.CreateChart;
 using ChartMaker.Application.Excel.Interfaces;
 using ChartMaker.Domain.Entities;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
@@ -10,11 +11,13 @@ public class CreateChartHandler : IRequestHandler<CreateChartCommand, Chart>
 {
     private readonly IChartRepository _repository;
     private readonly IExcelDataReader _excelDataReader;
+    private readonly IConfiguration _configuration;
 
-    public CreateChartHandler(IChartRepository repository, IExcelDataReader excelDataReader)
+    public CreateChartHandler(IChartRepository repository, IExcelDataReader excelDataReader, IConfiguration configuration)
     {
         _repository = repository;
         _excelDataReader = excelDataReader;
+        _configuration = configuration;
     }
 
     public async Task<Chart> Handle(CreateChartCommand request, CancellationToken cancellationToken)
@@ -22,26 +25,53 @@ public class CreateChartHandler : IRequestHandler<CreateChartCommand, Chart>
         var chart = new Chart
         {
             Title = request.Title,
-            Description = $"{request.Title} - {request.Description}",
+            Description = request.Description ?? string.Empty,
             CreatedAt = DateTime.UtcNow
         };
 
-        var excelData = _excelDataReader.Read(request.ExcelFile.OpenReadStream());
-
-        foreach (var row in excelData)
+        // Lê dados do Excel, se enviado
+        if (request.ExcelFile != null)
         {
-            chart.AddData(row.Position, row.Value);
+            var excelData = _excelDataReader.Read(request.ExcelFile.OpenReadStream());
+
+            foreach (var row in excelData)
+            {
+                chart.AddData(row.Position, row.Value);
+            }
+
+            // Monta o contexto para a IA
+            var dados = string.Join(" | ", excelData.Select(x => $"cel: {x.Position}, valor: {x.Value}"));
+            var contexto = string.IsNullOrWhiteSpace(request.Description)
+                ? dados
+                : $"{request.Description}\n\nDados da planilha: {dados}";
+
+            chart.Description = await CallOpenAI(contexto) ?? chart.Description;
+        }
+        else if (!string.IsNullOrWhiteSpace(request.Description))
+        {
+            // Somente texto — envia para IA interpretar
+            chart.Description = await CallOpenAI(request.Description) ?? request.Description;
         }
 
-        var dados = String.Join(" | ", excelData.Select(x => "cel: " + x.Position + ", valor: " + x.Value));
+        await _repository.AddAsync(chart, cancellationToken);
+        return chart;
+    }
 
-        // IA
+    private async Task<string?> CallOpenAI(string userContent)
+    {
+        var apiKey = _configuration["OpenAI:ApiKey"]
+                     ?? Environment.GetEnvironmentVariable("OPENAI_API_KEY")
+                     ?? string.Empty;
 
-        var apiKey = "";
+        if (string.IsNullOrWhiteSpace(apiKey))
+        {
+            Console.WriteLine("[OpenAI] Chave de API não configurada. Retornando dados brutos.");
+            return null;
+        }
+
         var endpoint = "https://api.openai.com/v1/chat/completions";
 
         using var httpClient = new HttpClient();
-
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         var requestBody = new
@@ -49,24 +79,35 @@ public class CreateChartHandler : IRequestHandler<CreateChartCommand, Chart>
             model = "gpt-4o-mini",
             messages = new[]
             {
-                new { role = "system", content = "Você é um conversor de dados recebidos de uma planilha excel para usar no chart.js. Somente retorne os dados formatados em json e não diga mais nada" },
-                new { role = "user", content = "Os dados enviados pelo usuario é: " + dados }
+                new
+                {
+                    role = "system",
+                    content = "Você é um conversor de dados para Chart.js. Receba dados do usuário e retorne APENAS um objeto JSON válido no formato: {\"type\": \"bar|line|pie|radar\", \"labels\": [...], \"datasets\": [{\"label\": \"...\", \"data\": [...]}]}. Não adicione texto explicativo, markdown ou blocos de código."
+                },
+                new { role = "user", content = userContent }
             }
         };
 
-        var json = System.Text.Json.JsonSerializer.Serialize(requestBody);
+        var json = JsonSerializer.Serialize(requestBody);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         var response = await httpClient.PostAsync(endpoint, content);
         var responseBody = await response.Content.ReadAsStringAsync();
 
-        using JsonDocument doc = JsonDocument.Parse(responseBody);
-        var message = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"[OpenAI] Erro {response.StatusCode}: {responseBody}");
+            return null;
+        }
 
-        chart.Description = $"Response from OpenAI: {message}";
-        Console.WriteLine(message);
+        using var doc = JsonDocument.Parse(responseBody);
+        var message = doc.RootElement
+            .GetProperty("choices")[0]
+            .GetProperty("message")
+            .GetProperty("content")
+            .GetString();
 
-        await _repository.AddAsync(chart, cancellationToken);
-        return chart;
+        Console.WriteLine($"[OpenAI] Resposta: {message}");
+        return message;
     }
 }

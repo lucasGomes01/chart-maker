@@ -1,13 +1,14 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 
 namespace ChartMaker.Application.Commands.Chart.CreateChart
 {
     public class CreateChartCommand : IRequest<Domain.Entities.Chart>
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string Title { get; set; } = string.Empty;
+        public string? Description { get; set; }
 
-        public IFormFile ExcelFile { get; set; }
+        // Opcional — pode criar gráfico só com texto ou só com arquivo
+        public IFormFile? ExcelFile { get; set; }
     }
 }

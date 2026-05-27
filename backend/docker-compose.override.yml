@@ -2,11 +2,16 @@ version: '3.4'
 
 services:
   chartmaker.api:
+    # Carrega todas as variáveis do arquivo .env do backend
+    # O .NET lê automaticamente env vars com __ como separador de seção
+    # Ex: OpenAI__ApiKey → appsettings["OpenAI"]["ApiKey"]
+    env_file:
+      - .env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=5000
     ports:
-    - "5000:5000"
+      - "5000:5000"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
